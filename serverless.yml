@@ -1,0 +1,29 @@
+service:
+  name: workers-wasm-test
+
+provider:
+  name: cloudflare
+  config:
+    accountId: 8c5ec9ef177791d74a1c50e20f78db8a
+    zoneId: CLOUDFLARE_ZONE_ID
+
+plugins:
+  - serverless-cloudflare-workers
+
+custom:
+  domain: example.com
+
+functions:
+  hello:
+    name: hello
+    webpack: webpack.config.js
+    script: helloWorld
+    events:
+      - http:
+          url: ${self:custom.domain}/hello/*
+          method: GET
+
+    resources:
+      wasm:
+        - variable: WASM
+          file: rust-wasm/pkg/rust_wasm_bg.wasm

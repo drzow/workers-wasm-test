@@ -1,0 +1,18 @@
+{
+  "name": "workers-wasm-test",
+  "version": "1.0.0",
+  "description": "Cloudflare serverless deployment with Rust WASM",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cloudflare",
+  "license": "MIT",
+  "devDependencies": {
+    "serverless-cloudflare-workers": "1.2.0",
+    "@wasm-tool/wasm-pack-plugin": "0.2.7"
+  },
+  "dependencies": {
+    "serverless-cloudflare-workers": "^1.2.0"
+  }
+}
